@@ -1,10 +1,4 @@
-<h1 align="center">
-<img width="40" valign="bottom" src="https://image.flaticon.com/icons/svg/2165/2165703.svg">
-Ad Server Development Guide
-</h1>
-<h5 align="center"> From A to Z of the ad sever, the guide explains how it works from planning to operation. </h5>  
-
-*Read this in other languages: [English](README.md), [한국어](README.ko.md)*
+# Ad Server Tutorial
 
 ## What's Ad Server
 
@@ -18,9 +12,9 @@ In this tutorial, you will learn about the operating principle of ad servers, fr
 
 There are only three things you need to know about for ad server!  
 
-**Administrators**: who execute appropriate ad campaigns to publishers and manages advertisers and publishers.  
-**Publishers**: who post advertisements delivered from the administrator on their website and earn revenue by impression.  
-**advertisers**: who create ad campaigns and pay for advertising.
+**Administrators**: The one who handles advertisers and publishers and executes relevant ad campaigns to publishers.
+**Publishers**: The one who publishes adverts on their website that are sent by the administrator and are paid per impression.
+**advertisers**: The one who pays for advertising and design advertising programs.
 
 The important reason is that it is the starting point for connected models as follows:  
 
@@ -48,18 +42,16 @@ src/
 ```
 
 ## Advertiser
-
-An advertiser is an individual or company that wants to place advertisements from the advertising zone of a specific publisher. The advertiser create and manage ad campaigns consisting of banner images and landing pages.  
+A person or business that wants to post advertisements from a certain publisher's advertising zone is known as an advertiser. The advertiser develops and oversees ad campaigns that include landing pages and banner imagery.
 
 ## Publisher
-
-A publisher is an individual or company that owns an advertising zone such as a website or newsletter. The publisher create and manage advertising areas, and provide transmitted advertisements to customers through advertising zones.
+A publisher is an individual or company that owns an advertising zone such as a website or newsletter. The publisher creates and manages advertising areas, and provides transmitted advertisements to customers through advertising zones.
 
 ## How's Ad Campaign Delivered
 
 ### 1. Connect ad campaign to publisher's zone
 
-To delivery an ad campaign, ad campaign has to be connected to the publisher’s zone. The campaign can be connected by creating a Placement.
+To deliver an ad campaign, the ad campaign has to be connected to the publisher’s zone. The campaign can be connected by creating a Placement.
 
 #### Creating a Placement
 
@@ -93,7 +85,7 @@ This is how the ad campaign can be connected to the zone.
 
 ### 2. The connected ad campaign is exposed on the publisher’s website
 
-Publishers inserts the zone tag into their website. The zone tag includes zone ID, and requests for appropriate ad campaign using the zone ID when a page is loaded.  
+Publishers insert the zone tag into their website. The zone tag includes zone ID, and requests for appropriate ad campaigns using the zone ID when a page is loaded.
 
 ```html
 <html>
@@ -117,11 +109,10 @@ Publishers inserts the zone tag into their website. The zone tag includes zone I
 The assigned ad campaign is exposed on the zone of the publisher.
 
 ## How Does it Collect Ad Statistics  
+Impressions are collected when the publisher requests the ad campaign. Clicks are collected when the audience clicks on the banner ad.
 
-Impressions are collected when the publisher request for the ad campaign.  
-Clicks are collected when the audience clicks on the banner ad.  
+The way to collect clicks is by generating a redirect URL, passing through to the ad server address when an audience clicks on the ad banner image, collecting the clicks from the ad campaign, and then redirecting the audience to the landing page of the ad.
 
-The way to collect clicks is by generating a redirect URL, pass through to the ad server address when a audience clicks on the ad banner image, collect the clicks from the ad campaign, and then redirect the audience to the landing page of the ad.
 
 Code sample
 ```javascript
@@ -140,56 +131,33 @@ router.get("/redirect", async function(req, res) {
 Therefore, the audience accesses the ad campaign through the following pattern:
 **Click on the ad banner → bypass the ad server → go to the original link of the ad banner**
 
-## Stuff I wanna include  
+## Next Steps
 
-#### Conversion Tracking -
+1. **Conversion Tracking.** Statistics that can be collected include impressions, clicks, and conversions. The meaning of the conversion can be defined in various ways, An audience's subscription can be a conversion or a newsletter subscription. We describe these specific actions as conversions, and we use conversion pixels to collect a variety of conversions tailored to the needs of the advertiser.
 
-Statistics that can be collected include impressions, clicks, and conversions.  
-The meaning of the conversion can be defined in various ways, An audience's subscription can be a conversion or a newsletter subscription.  
 
-We describe these specific actions as conversions, and we use conversion pixels to collect a variety of conversions tailored to the needs of the advertiser.
-
-##### What's Conversion Pixel  
-This is the "image tag for requesting" that you use to track a specific action from an audience, which tracks the number of conversions for a specific element through the address value of the image tag.  
+**What's Conversion Pixel**  
+This is the "image tag for requesting" that you use to track a specific action from an audience, which tracks the number of conversions for a specific element through the address value of the image tag.
 
 *ex: ```<img src="http://localhost/convert/track?ad_item_id=${AD_ITEM_ID}" />;```*  
-In this, you can collect conversions from an ad item by inserting an conversion pixel tag.  
+In this, you can collect conversions from an ad item by inserting a conversion pixel tag.
 
-#### A/B Testing -  
+2. **A/B Testing.** Compares two ads within an ad campaign and automatically replaces an ad with a lower response rate with another ad
 
-Compares two ads within an ad campaign and automatically replaces an ad with a lower response rate with another ad.
+3. **Geographic Targeting.** Ad campaigns are served to specific countries or regions.  
 
-#### Geographic Targeting -  
+4. **Behavioral Targeting.**  Ad campaigns are served based on specific audience behavior.  
 
-Ad campaigns are served to specific countries or regions.  
+5. **Keywords Targeting.**  Ad campaigns are served to websites containing specific keywords.  
 
-#### Behavioral Targeting -  
+6. **Retargeting.** Ad campaigns are served based on data from websites visited by audience.
 
-Ad campaigns are served based on specific audience behavior.  
+7. **Cross-Device Advertising.**  Ad campaigns are served to specific audience, across devices.  
 
-#### Keywords Targeting -  
-
-Ad campaigns are served to websites containing specific keywords.  
-
-#### Retargeting -  
-
-Ad campaigns are served based on data from websites visited by audience.
-
-#### Cross-Device Advertising -  
-
-Ad campaigns are served to specific audience, across devices.  
-
-#### Cross-Channel Advertising -  
-
-Ad campaigns are served to specific audience, across channels such as website, email, newsletter.  
+8. **Cross-Channel Advertising.** Ad campaigns are served to specific audience, across channels such as website, email, newsletter.  
 
 ## Getting Started  
-
-*This ad server is using the database MongoDB*  
-*Before you start, make sure MongoDB is installed on Localhost!*. 
-
-- MongoDB v4.2.1
-
+This ad server is using the database MongoDB Before you start, make sure MongoDB is installed on Localhost. 
 ```bash
 $ git clone https://github.com/kijepark/adserver-tutorial.git
 $ cd adserver-tutorial
