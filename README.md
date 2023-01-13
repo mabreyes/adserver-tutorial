@@ -1,4 +1,5 @@
 # Ad Server Tutorial
+by **Marc Anthony B Reyes** | CS 250 | MS Computer Science
 
 ## What's Ad Server
 
