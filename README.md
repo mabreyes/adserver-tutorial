@@ -159,7 +159,7 @@ In this, you can collect conversions from an ad item by inserting a conversion p
 ## Getting Started  
 This ad server is using the database MongoDB Before you start, make sure MongoDB is installed on Localhost. 
 ```bash
-$ git clone https://github.com/kijepark/adserver-tutorial.git
+$ git clone https://github.com/mabreyes/adserver-tutorial.git
 $ cd adserver-tutorial
 $ npm install
 $ npm run build
