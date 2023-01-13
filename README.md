@@ -12,9 +12,9 @@ In this tutorial, you will learn about the operating principle of ad servers, fr
 
 There are only three things you need to know about for ad server!  
 
-**Administrators**: The one who handles advertisers and publishers and executes relevant ad campaigns to publishers.
-**Publishers**: The one who publishes adverts on their website that are sent by the administrator and are paid per impression.
-**advertisers**: The one who pays for advertising and design advertising programs.
+1. **Administrators.** The one who handles advertisers and publishers and executes relevant ad campaigns to publishers.
+2. **Publishers.** The one who publishes adverts on their website that are sent by the administrator and are paid per impression.
+3. **Advertisers.** The one who pays for advertising and design advertising programs.
 
 The important reason is that it is the starting point for connected models as follows:  
 
