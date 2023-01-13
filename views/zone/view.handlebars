@@ -1,0 +1,80 @@
+<h3> {{ zone.name }}({{ zone.width }}x{{ zone.height }}) </h3>
+<div class="uk-margin uk-display-block uk-text-right">
+  <button id="zone-tag-button" class="uk-button uk-button-primary" uk-toggle="target: #zone-tag-modal" type="button">
+    <span uk-icon="code" class="uk-icon uk-margin-small-right"></span>
+    <span class="uk-text-middle"> Get Zone Tags </span>
+  </button>
+</div>
+<div id="zone-tag-modal" data-zone-width="{{ zone.width }}" data-zone-height="{{ zone.height }}" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body">
+    <h2 class="uk-modal-title"> Zone Tags </h2>
+    <div class="uk-form-horizontal">
+      <div class="uk-margin">
+        <label class="uk-form-label" for="form-horizontal-select"> Type </label>
+        <div class="uk-form-controls">
+          <select class="uk-select" id="zone-tag-type-select">
+            <option value="js"> JavaScript </option>
+            <option value="iframe"> IFrame </option>
+            <option value="json"> JSON Ad API </option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="uk-margin">
+      <textarea id="zone-tag-area" class="uk-textarea" rows="5" placeholder=""></textarea>
+    </div>
+    <p class="uk-text-right">
+      <button class="uk-button uk-button-default uk-modal-close" type="button"> Cancel </button>
+    </p>
+  </div>
+</div>
+<h4 class="uk-h4"> Assigned Campaigns </h4>
+<div class="uk-margin">
+  <button id="campaign-assign-modal-button" class="uk-button uk-button-default" uk-toggle="target: #campaign-assign-create-modal" type="button">
+    <span uk-icon="plus" class="uk-icon uk-margin-small-right"></span>
+    <span class="uk-text-middle"> Assign New </span>
+  </button>
+</div>
+<div id="campaign-assign-create-modal" class="uk-modal-container" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body">
+    <h4 class="uk-h4"> Select a campaign to assign to "{{ zone.name }}" </h4>
+    <div class="uk-form-horizontal">
+      <table id="campaign-assign-list" class="uk-table uk-table-hover uk-table-middle uk-table-divider uk-table-cursor-pointer">
+        <thead>
+          <tr>
+            <th class="uk-table-shrink"></th>
+            <th class="uk-table-shrink"> Campaign </th>
+            <th class="uk-table-shrink"> Eligible Ad Items </th>
+            <th class="uk-table-shrink"> Advertiser </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="uk-text-center">
+            <td colspan="4"> No Campaigns Found </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="uk-text-right">
+      <button class="uk-button uk-button-default uk-modal-close" type="button"> Cancel </button>
+    </p>
+  </div>
+</div>
+<table id="campaign-assigned-list" class="uk-table uk-table-hover uk-table-left uk-table-divider">
+  <thead>
+    <tr>
+      <th class="uk-table-shrink"></th>
+      <th class="uk-table-shrink"> Name </th>
+      <th class="uk-table-shrink"> Total Impressions </th>
+    </tr>
+  </thead>
+  <tbody>
+    {{ assignedCampaignList assigned_campaigns }}
+  </tbody>
+</table>
+<div class="uk-margin">
+  <button id="campaign-assign-delete-button" class="uk-button uk-button-default" type="button">
+    <span uk-icon="close" class="uk-icon uk-margin-small-right"></span>
+    <span class="uk-text-middle"> Remove </span>
+  </button>
+</div>

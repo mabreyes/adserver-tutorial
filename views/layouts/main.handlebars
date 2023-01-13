@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Adserver Tutorial </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Icon -->
+    <link href="/images/favicon.png" rel="shortcut icon">
+    <link href="/images/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.6/dist/css/uikit.min.css">
+
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="/css/theme.css">
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.6/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.6/dist/js/uikit-icons.min.js"></script>
+
+    <!-- Chart JS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+  </head>
+  <body>
+    <div class="uk-navbar-container tm-navbar-container uk-sticky uk-sticky-fixed">
+      <div class="uk-container uk-container-expand">
+        <nav class="uk-navbar">
+          <div class="uk-navbar-left">
+            <a href="/" class="uk-navbar-item uk-logo">
+              <img src="/images/uikit-logo.svg" class="uk-margin-small-right">
+              Adserver Tutorial
+            </a>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <div class="tm-sidebar-left uk-visible@m">
+      {{> navigation}}
+    </div>
+    <div class="tm-main uk-section uk-section-default">
+      <div class="uk-container uk-container-small uk-position-relative">
+        <div>
+          <div>
+            {{{body}}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/main.js"></script>
+  </body>
+</html>
